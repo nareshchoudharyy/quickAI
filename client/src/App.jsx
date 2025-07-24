@@ -12,7 +12,6 @@ import Community from './pages/Community'
 import ReviewResume from './pages/ReviewResume'
 import { Toaster } from "react-hot-toast"
 function App() {
-  
   return (
     <div>
       <Toaster />
@@ -33,5 +32,4 @@ function App() {
     </div>
   )
 }
-
 export default App

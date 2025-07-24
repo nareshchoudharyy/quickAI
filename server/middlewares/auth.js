@@ -1,6 +1,5 @@
 import { clerkClient } from "@clerk/express";
 
-//Middle to check userId and has premium plan
 export const auth = async (req, res, next) => {
     try {
         const { userId, has } = await req.auth();

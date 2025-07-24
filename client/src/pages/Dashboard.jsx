@@ -15,7 +15,6 @@ const Dashboard = () => {
   const { getToken } = useAuth();
 
   const getDashboardData = async () => {
-    setCreations(dummyCreationData);
     try {
       const { data } = await axios.get('api/user/get-user-creations', { headers: { Authorization: `Bearer ${await getToken()}` } })
 

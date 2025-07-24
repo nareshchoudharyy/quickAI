@@ -10,7 +10,6 @@ import RemoveObject from './pages/RemoveObject'
 import RemoveBackground from './pages/RemoveBackground'
 import Community from './pages/Community'
 import ReviewResume from './pages/ReviewResume'
-import { useAuth } from '@clerk/clerk-react'
 import { Toaster } from "react-hot-toast"
 function App() {
   

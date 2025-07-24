@@ -21,7 +21,7 @@ export const toogleLikeCreation = async (req, res) => {
     try {
         const { userId } = req.auth();
         const { id } = req.body;
-        const [creation] = await sql`SELECT * FROM creation WHERE ID = ${id}`;
+        const [creation] = await sql`SELECT * FROM creations WHERE ID = ${id}`;
         if (!creation) {
             res.json({ success: false, message: 'creation not found' })
         }

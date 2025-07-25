@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { dummyCreationData } from '../assets/assets';
 import { Gem, Sparkles } from 'lucide-react';
-import { Protect } from '@clerk/clerk-react';
+import { Protect, useClerk } from '@clerk/clerk-react';
 import CreationItem from '../components/CreationItem';
 import { useAuth } from '@clerk/clerk-react';
 import axios from 'axios'
 import toast from 'react-hot-toast';
-
+import { useNavigate } from 'react-router-dom';
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
-
 const Dashboard = () => {
   const [creations, setCreations] = useState([]);
   const [loading, setLoading] = useState(true);
   const { getToken } = useAuth();
-
+  const navigate = useNavigate();
   const getDashboardData = async () => {
     try {
       const { data } = await axios.get('api/user/get-user-creations', { headers: { Authorization: `Bearer ${await getToken()}` } })
@@ -28,15 +26,14 @@ const Dashboard = () => {
     }
     setLoading(false);
   }
+  const { openUserProfile } = useClerk();
   useEffect(() => {
     getDashboardData();
   }, [])
-
-
   return (
     <div className='h-full overflow-y-scroll p-6'>
       <div className='flex justify-start gap-4 flex-wrap'>
-        <div className='flex justify-between items-center w-72 p-4 px-6 bg-white rounded-xl border border-gray-200'>
+        <div onClick={()=> navigate('/ai/community')} className='flex justify-between items-center w-72 p-4 px-6 bg-white rounded-xl border border-gray-200 cursor-pointer'>
           <div className='text-slate-600'>
             <p className='text-sm'>Total Creations</p>
             <h2 className='text-lg font-semibold'>{creations.length}</h2>
@@ -45,7 +42,7 @@ const Dashboard = () => {
             <Sparkles className='w-5 text-white' />
           </div>
         </div>
-        <div className='flex justify-between items-center w-72 p-4 px-6 bg-white rounded-xl border border-gray-200'>
+        <div onClick={openUserProfile} className='flex justify-between items-center w-72 p-4 px-6 bg-white rounded-xl border border-gray-200 cursor-pointer'>
           <div className='text-slate-600'>
             <p className='text-sm'>Active Plan</p>
             <h2 className='text-lg font-semibold'>

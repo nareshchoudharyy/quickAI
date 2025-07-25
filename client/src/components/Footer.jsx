@@ -27,7 +27,7 @@ export default function Footer() {
                             <p>The latest news, articles, and resources, sent to your inbox weekly.</p>
                             <div className="flex items-center gap-2 pt-4">
                                 <input className="border border-gray-500/30 placeholder-gray-500 focus:ring-2 ring-indigo-600 outline-none w-full max-w-64 h-9 rounded px-2" type="email" placeholder="Enter your email" />
-                                <button className="bg-[#4f46e5] w-24 h-9 text-white rounded cursor-pointer">Subscribe</button>
+                                <button className="bg-[#4f46e5] p-2 xl:p-0 w-24 h-9 text-white rounded cursor-pointer">Subscribe</button>
                             </div>
                         </div>
                     </div>

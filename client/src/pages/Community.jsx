@@ -43,7 +43,7 @@ const Community = () => {
   }
   useEffect(() => {
     if (user) {
-      fetchCreations();
+      fetchCreations()
     }
   }, [user])
   return !loading ? (

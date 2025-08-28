@@ -9,9 +9,9 @@ axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
 const WriteArticle = () => {
   const articleLength = [
-    { length: 800, text: "Short (500-800 words" },
-    { length: 1200, text: "Medium (800-1200 words" },
-    { length: 1600, text: "Long (1200+ words" },
+    { length: 800, text: "Short (500-800 words)" },
+    { length: 1200, text: "Medium (800-1200 words)" },
+    { length: 1600, text: "Long (1200+ words)" },
   ]
   const [selectedLength, setSelectedlength] = useState(articleLength[0]);
   const [input, setInput] = useState('');
